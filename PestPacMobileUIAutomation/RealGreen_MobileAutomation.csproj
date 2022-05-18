@@ -103,6 +103,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TimeSheets.feature</DependentUpon>
     </Compile>
+    <Compile Include="Model\BasePage.cs" />
     <Compile Include="Model\CallLogView.cs" />
     <Compile Include="Model\CrewMembersView.cs" />
     <Compile Include="Model\JobListView.cs" />
