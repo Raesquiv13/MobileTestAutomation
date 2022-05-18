@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealGreen_MobileAutomation", "PestPacMobileUIAutomation\RealGreen_MobileAutomation.csproj", "{83535282-7B49-4AAB-8E1A-552BEAA47A0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD8C248E-537A-407F-B890-DD98E2F10648}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		WorkWave.TestAutomation.TestEngine\config.json = WorkWave.TestAutomation.TestEngine\config.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83535282-7B49-4AAB-8E1A-552BEAA47A0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83535282-7B49-4AAB-8E1A-552BEAA47A0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83535282-7B49-4AAB-8E1A-552BEAA47A0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83535282-7B49-4AAB-8E1A-552BEAA47A0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {053D5742-D8EF-4382-A352-1B555FDE93B8}
+	EndGlobalSection
+EndGlobal

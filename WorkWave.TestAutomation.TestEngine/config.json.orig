@@ -1,0 +1,8 @@
+{
+ "Browser": "Chrome",
+ "HomePage": "https://pptxb01b.pestpac.com",
+ "UseSeleniumGrid": false,
+ "SeleniumHubAddr": "http://10.90.5.11:4444/wd/hub",
+ "ImplicitWait": 5
+
+}

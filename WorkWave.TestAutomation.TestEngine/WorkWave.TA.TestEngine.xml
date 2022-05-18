@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WorkWave.TA.TestEngine</name>
+    </assembly>
+    <members>
+        <member name="T:WorkWave.TA.TestEngine.CustomExpectedConditions">
+            <summary>
+            Supplies Expected Conditions that can be waited on <see cref="!:WebDriverWait"/>
+            </summary>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.CustomExpectedConditions.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:WorkWave.TA.TestEngine.CustomExpectedConditions"/> class from being created.
+            </summary>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.CustomExpectedConditions.DocumentIsReady">
+            <summary>
+            Wait until the document is ready.  Utilize this condition to help determine when a page is finished loading.  This does not guarantee protection
+            against race conditions as non-deteministic events such as the timing between page tranistions or the timining between load event firing can vary.
+            </summary>
+            <returns>true if document.readystate is 'complete', false if otherwise</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.CustomExpectedConditions.ElementIsVisible(OpenQA.Selenium.IWebElement)">
+            <summary>
+            An expectation for checking that an element is present on the page and
+            is visible.  Will catch the following exceptions: StaleElementReferenceException, NoSuchElementException, ElementNotVisibleException
+            </summary>
+            <param name="element">The expected element to be visible.</param>
+            <returns>true if visible, false if not.</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.CustomExpectedConditions.ElementIsEnabled(OpenQA.Selenium.IWebElement)">
+            <summary>
+            An expectation for checking that an element is enabled on the page.  Will catch the following exceptions: StaleElementReferenceException, NoSuchElementException
+            </summary>
+            <param name="element">The expected element to be enabled.</param>
+            <returns>true if enabled, false if not enabled.</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.CustomExpectedConditions.ElementExists(OpenQA.Selenium.IWebElement)">
+            <summary>
+            An expectation that the element provided can be found in the DOM tree.  Will handle (base exception) NotFoundException
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.FindElementInListByText(System.Collections.Generic.IList{OpenQA.Selenium.IWebElement},OpenQA.Selenium.By,System.String)">
+            <summary>
+            Utility method to search through a list of web elements and retrieve the first matching web element associated with a given text value.
+            An optional locator can be supplied if you want to search through child nodes in the element list.
+            </summary>
+            <param name="elementList">The list of web elements to search through</param>
+            <param name="childNodeLocator">The optional locator of the child node(s) to be used in the search, otherwise NULL</param>
+            <param name="searchValue">The text value associated with the locator</param>
+            <returns>Will return the web element found, null if not found</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.ExplicitWaitForAction(WorkWave.TA.TestEngine.ExplicitWaitForActionDelegate,System.Int32,System.Int32)">
+            <summary>
+            This method is comparable to Selenium provided WebDriverWait, however, instead of 
+            limiting the wait to a specific expected condition, you can explicitly wait
+            for conditions, locators, actions or any atomic set of operations that
+            depend on a actionable set of elements on a page.  Additionally, it returns a boolean
+            allowing the user the option to continue with code without having to catch TimeoutException.
+            Handles the following exceptions: StaleElementReferenceException, ElementNotVisibleException, 
+            InvalidOperationException, NoSuchElementException, NoSuchFrameException
+            </summary>
+            <param name="codeToRun">Code that depends on expected Selenium conditions.
+            [(Anonymous) Method that satisfies the ExplicitWaitForActionDelegate] </param>
+            <param name="timeout">Set the amount of time allowable to run the code.  (in milliseconds) </param>
+            <param name="pollingInterval">Set the frequency of how often the action will be attempted before timing out.
+            Default value is every 500 [millisec] </param>
+            <returns> Returns boolean true if code ran withing timeout without throwing Selenium exceptions.
+            Returns boolean false if code could not complete within the timeout specified.
+            </returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.ExceptionCausedByUnexpectedAlerts(System.Exception)">
+            <summary>
+            This method will check if a Selenium exception was caused by an (unexpected) Alert.  If so, it will return an UnhandledAlertException with
+            the offending exception as the inner exception.  You may re-throw the returned exception depending on your desired flow.
+            If running tests on the Selenium Grid, exception types thrown may be different than when run locally.        
+            </summary>
+            <param name="exception">Instance of the exception caught.</param>
+            <returns>An UnhandledAlertException if caused by Alert, otherwise will return null</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.SetCheckBox(OpenQA.Selenium.IWebElement,System.Boolean)">
+            <summary>
+            Set the checkbox to the desired state.
+            </summary>
+            <param name="element">The checkbox element</param>
+            <param name="selected">The desired selection state of the checkbox</param>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.FindFirstElementContainingText(System.Collections.Generic.IList{OpenQA.Selenium.IWebElement},System.String)">
+            <summary>
+            This method will return the first element found in a collection of elements, that contains the search query in the 
+            inner text of the element.
+            </summary>
+            <param name="elements">The List of elements to be queried.</param>
+            <param name="searchString">The search string</param>
+            <returns>Return the IWebElement object that satisfies the query, otherwise NULL.</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.FindFirstElement_ContainedInTextContext(System.Collections.Generic.IList{OpenQA.Selenium.IWebElement},System.String)">
+            <summary>
+            This method will return the first element found in a collection of elements, that contains the search query in the 
+            text context of the element.
+            </summary>
+            <param name="elements">The List of elements to be queried.</param>
+            <param name="searchString">The search string</param>
+            <returns>Return the IWebElement object that satisfies the query, otherwise NULL.</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.FindFirstElementMatchingText(System.Collections.Generic.IList{OpenQA.Selenium.IWebElement},System.String)">
+            <summary>
+            This method will return the first element found in a collection of elements that eqauls the search query in the 
+            inner text of the element.  Leading and trailing spaces found in the element's inner text will be ignored.
+            </summary>
+            <param name="elements">The List of elements to be queried.</param>
+            <param name="searchString">The search string</param>
+            <returns>Return the IWebElement object that satisfies the query, otherwise NULL.</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.FindFirstElement_MatchTextContext(System.Collections.Generic.IList{OpenQA.Selenium.IWebElement},System.String)">
+            <summary>
+            This method will return the first element found in a collection of elements that eqauls the search query in the 
+            text context of the element.
+            </summary>
+            <param name="elements"></param>
+            <param name="searchString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.WaitFor``1(System.Func{OpenQA.Selenium.IWebDriver,``0})">
+            <summary>
+            Explicitly wait for expected conditions, Selenium provided or WorkWave.TA.TestEngine.CustomExpectedConditions
+            </summary>
+            <param name="expectedCondition">The (Custom) Expected Condition to be evaluated</param>
+            <returns>boolean : The result definining whether the expected condition has been met</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.WaitFor``1(System.Func{OpenQA.Selenium.IWebDriver,``0},System.TimeSpan)">
+            <summary>
+            Explicitly wait for expected conditions, Selenium provided or WorkWave.TA.TestEngine.CustomExpectedConditions
+            </summary>
+            <param name="expectedCondition">The (Custom) Expected Condition to be evaluated</param>
+            <param name="timeout">Overwrite the default timeout period in milliseconds</param>
+            <returns>boolean : The result definining whether the expected condition has been met</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.WaitFor``1(System.Func{OpenQA.Selenium.IWebDriver,``0},System.Nullable{System.TimeSpan},System.TimeSpan)">
+            <summary>
+            Explicitly wait for expected conditions, Selenium provided or WorkWave.TA.TestEngine.CustomExpectedConditions
+            </summary>
+            <param name="expectedCondition">The (Custom) Expected Condition to be evaluated</param>
+            <param name="timeout">Overwrite the default timeout period in milliseconds</param>
+            <param name="pollingInterval">Overwrite the default polling interval in milliseconds</param>
+            <returns>boolean : The result definining whether the expected condition has been met</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.WaitFor``1(System.Func{OpenQA.Selenium.IWebDriver,``0},System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan})">
+            <summary>
+            Explicitly wait for expected conditions, Selenium provided or WorkWave.TA.TestEngine.CustomExpectedConditions
+            </summary>
+            <param name="expectedCondition">The (Custom) Expected Condition to be evaluated</param>
+            <param name="timeout">Overwrite the default timeout period in milliseconds</param>
+            <param name="pollingInterval"></param>
+            <returns>boolean : The result definining whether the expected condition has been met</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.WaitFor``1(System.Func{OpenQA.Selenium.IWebDriver,``0},System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},System.Type[])">
+            <summary>
+            Explicitly wait for expected conditions, Selenium provided or WorkWave.TA.TestEngine.CustomExpectedConditions.
+            The underlying ExplicitWait object will be reset to clear the ignored exceptions before 
+            returning execution to the caller. 
+            </summary>
+            <param name="expectedCondition">The (Custom) Expected Condition to be evaluated</param>
+            <param name="timeout">Overwrite the default timeout period in milliseconds</param>
+            <param name="pollingInterval">Overwrite the default polling interval in milliseconds</param>
+            <param name="exceptionTypes">Specify the exception types to be whitelisted.  These ignored exceptions may propogate and terminate the wait</param>
+            <returns>boolean : The result definining whether the expected condition has been met</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.SaveScreenshot(System.String,System.String)">
+            <summary>
+            Takes a screenshot and saves it to the default directory. Uses the featureTitle
+            and scenarioTitle to generate the filename.
+            </summary>
+            <param name="featureTitle">Name of the currently executing feature.</param>
+            <param name="scenarioTitle">Name of the currently executing scenario.</param>
+            <returns>Will return the FullName of the screenshot file.</returns>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.SeleniumUtility.SaveScreenshot(System.String,System.String,System.String)">
+            <summary>
+            Takes a screenshot and saves it to the location specified by the passed Uri. 
+            Uses the featureTitle and scenarioTitle to generate the filename.
+            </summary>
+            <param name="featureTitle">Name of the currently executing feature.</param>
+            <param name="scenarioTitle">Name of the currently executing scenario.</param>
+            <param name="uri">Location to store screenshot.</param>
+            <returns>Will return the FullName of the screenshot file.</returns>
+        </member>
+        <member name="P:WorkWave.TA.TestEngine.WebApplication.ExplicitWait">
+            <summary>
+            Explicit Wait object with a default timeout of 3 seconds.
+            Use Timeout property to override the default timeout.
+            Use PollingInterval Property to set how often the expected condition is evaluated.
+            </summary>
+        </member>
+        <member name="P:WorkWave.TA.TestEngine.WebApplication.Alert">
+            <summary>
+            Get the expected Alert.  
+            Because there is an expectation for an Alert to be present on the page, 
+            this property will wait 3 seconds until alert is present.  If present the web driver will switch to it,
+            otherwise it will return a null
+            </summary>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.WebApplication.Alert_Accept">
+            <summary>
+            If an alert is present, accept it.
+            </summary>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.WebApplication.Alert_Dismiss">
+            <summary>
+            If an alert is present, dismiss it.
+            </summary>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.WebApplication.InitializeLogger">
+            <summary>
+            Call this to initialize the logger, prefarably in a Test Setup fixture/hook scoped for test run.  This is desired to provide logger access
+            to all tests and not having to make multiple initialization calls.  This is necessary to call from within the test unit project as
+            some test runners, such as NUnit3 will highjack std out.
+            Don't forget to maintain the logger.xml configuration file.
+            </summary>
+        </member>
+        <member name="M:WorkWave.TA.TestEngine.WebApplication.ResetExplicitWait(System.Boolean)">
+            <summary>
+            Reset the ExplicitWait parameters bound to the WebDriver instance.  Selenium's WebDriverWait 
+            object does not provide the ability to remove previous added ignored exceptions.  
+            The timeout and polling interval parameters will be reset to those defined in the 
+            config.json file, otherwise they will match Selenium default values of 3000 milliseconds and 500 milliseconds respectively.
+            </summary>
+            <param name="resetIgnoredExceptions">specify if you need the ignored exceptions whitelist to be reset</param>
+        </member>
+    </members>
+</doc>
