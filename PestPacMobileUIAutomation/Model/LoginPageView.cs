@@ -8,7 +8,7 @@ using System;
 
     namespace RealGreen.MobileAutomation.Model
 {
-    class LoginPageView
+    class LoginPageView : BasePage
     {
         #region Page Factory
         //New 2.0
@@ -91,13 +91,33 @@ using System;
 
         #region Page Factory Setup
 
-        public LoginPageView() => InitializePageFactoryElements();
-
-        public void InitializePageFactoryElements() => PageFactory.InitElements(WebApplication.Instance.WebDriver, this);
+        public LoginPageView(IWebDriver driver):base(driver)
+        {
+            PageFactory.InitElements(driver, this);
+        }
 
         #endregion Page Factory Setup
 
         #region Behavior
+
+        public override bool verifyPageLoads()
+        {
+            return waitForElementVisible(companyLogoImage);
+        }
+
+        
+        public void loginUser(string companyId, string username, string password)
+        {
+            if (verifyPageLoads())
+            {
+                waitAndTypeOnCleanElement(companyIdTexbox, companyId);
+                waitAndTypeOnCleanElement(employeeIdTexbox,username);
+                waitAndTypeOnCleanElement(passwordTexbox,password);
+            }
+            waitAndClick(loginButton);
+            waitAndClick(okButton);
+        }
+        
         //New
 
         public bool RGUserNameTextBoxVisible() => EmailTextBox.Displayed; 
