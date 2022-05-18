@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{83535282-7B49-4AAB-8E1A-552BEAA47A0A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RealGreen.MobileAutomation</RootNamespace>
+    <AssemblyName>RealGreen_MobileAutomation</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="WorkWave.TA.TestEngine">
+      <HintPath>..\WorkWave.TestAutomation.TestEngine\WorkWave.TA.TestEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Configuration\RealGreen_MobileAutomation.cs" />
+    <Compile Include="Features\JobListChangeDate.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobListChangeDate.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\NotServiceableReasons.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NotServiceableReasons.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Odometer.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Odometer.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\RefreshParametersAndImages.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RefreshParametersAndImages.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\RefreshRoute.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RefreshRoute.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\RefreshVehicleInventory.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RefreshVehicleInventory.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Reschedule.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reschedule.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\RGCallLog.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RGCallLog.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\SetupRoute.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SetupRoute.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Login.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Login.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\TimeSheets.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TimeSheets.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CallLogView.cs" />
+    <Compile Include="Model\CrewMembersView.cs" />
+    <Compile Include="Model\JobListView.cs" />
+    <Compile Include="Model\MapView.cs" />
+    <Compile Include="Model\NotServiceableReasonsView.cs" />
+    <Compile Include="Model\OdometerPageView.cs" />
+    <Compile Include="Model\ProductionView.cs" />
+    <Compile Include="Model\QuickProductionView.cs" />
+    <Compile Include="Model\RGCallLogPage.cs" />
+    <Compile Include="Model\RouteListView.cs" />
+    <Compile Include="Model\RouteSetupView.cs" />
+    <Compile Include="Model\ScheduleView.cs" />
+    <Compile Include="Model\SettingView.cs" />
+    <Compile Include="Model\StopView.cs" />
+    <Compile Include="Model\GenericPageModel.cs" />
+    <Compile Include="Model\RescheduleView.cs" />
+    <Compile Include="Model\NoteListView.cs" />
+    <Compile Include="Model\PDFView.cs" />
+    <Compile Include="Model\LoginPageView.cs" />
+    <Compile Include="Model\TimeSheetsView.cs" />
+    <Compile Include="RealGreenMobileSupport.cs" />
+    <Compile Include="SharedData\Job.cs" />
+    <Compile Include="SharedData\RealGreenData.cs" />
+    <Compile Include="SharedData\RGCallLog.cs" />
+    <Compile Include="SharedData\Login.cs" />
+    <Compile Include="Steps\CommonSteps.cs" />
+    <Compile Include="Steps\JobListChangeDateSteps.cs" />
+    <Compile Include="Steps\NotServiceableReasonsSteps.cs" />
+    <Compile Include="Steps\OdometerSteps.cs" />
+    <Compile Include="Steps\RealGrennLoginSteps.cs" />
+    <Compile Include="Steps\RefreshParametersAndImagesSteps.cs" />
+    <Compile Include="Steps\RefreshVehicleInventorySteps.cs" />
+    <Compile Include="Steps\RescheduleSteps.cs" />
+    <Compile Include="Steps\RGCallLogSteps.cs" />
+    <Compile Include="Steps\SetupRouteSteps.cs" />
+    <Compile Include="Steps\LoginSteps.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\TimeSheetsSteps.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Configuration\RealGreen_MobileAutomation.json" />
+    <None Include="Features\JobListChangeDate.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>JobListChangeDate.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\NotServiceableReasons.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>NotServiceableReasons.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Odometer.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Odometer.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\RefreshParametersAndImages.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RefreshParametersAndImages.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\RefreshRoute.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RefreshRoute.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\RefreshVehicleInventory.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RefreshVehicleInventory.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Reschedule.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Reschedule.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\RGCallLog.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RGCallLog.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\SetupRoute.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SetupRoute.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\Login.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Login.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\TimeSheets.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TimeSheets.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Appium.WebDriver">
+      <Version>3.0.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Castle.Core">
+      <Version>3.3.3</Version>
+    </PackageReference>
+    <PackageReference Include="log4net">
+      <Version>2.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestAdapter">
+      <Version>1.1.18</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestFramework">
+      <Version>1.3.2</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>10.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="NUnit">
+      <Version>3.11.0</Version>
+    </PackageReference>
+    <PackageReference Include="NUnit3TestAdapter">
+      <Version>3.13.0</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.Firefox.WebDriver">
+      <Version>0.18.0</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.Support">
+      <Version>3.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver">
+      <Version>3.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver">
+      <Version>2.41.0</Version>
+    </PackageReference>
+    <PackageReference Include="Selenium.WebDriver.IEDriver">
+      <Version>3.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="SpecFlow">
+      <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation">
+      <Version>2.4.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.3.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>IF EXIST $(ProjectDir)Configuration\PestPacMobileConfig.json (copy  $(ProjectDir)Configuration\PestPacMobileConfig.json $(TargetDir)PestPacMobileConfig.json)</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(SolutionDir)\WorkWave.TestAutomation.TestEngine\config.json" "$(TargetDir)"
+copy "$(SolutionDir)\WorkWave.TestAutomation.TestEngine\logger.xml" "$(TargetDir)"
+copy "$(SolutionDir)\WorkWave.TestAutomation.TestEngine\Newtonsoft.Json.dll" "$(TargetDir)"
+copy "$(SolutionDir)\WorkWave.TestAutomation.TestEngine\Newtonsoft.Json.xml" "$(TargetDir)"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

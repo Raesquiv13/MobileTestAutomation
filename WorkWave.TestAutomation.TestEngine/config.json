@@ -1,0 +1,12 @@
+{
+  "Mobile": true,
+  "UseSeleniumGrid": false,
+  "DeviceName": "adb:SM-G9600",
+  "Udid": "4e494a5a48553398",
+  "PlatformName": "Android",
+  "AppPackage": "com.workwave.realgreen",
+  "AppActivity": "crc6490976efa029f07d1.SplashScreenActivity",
+  "AppiumAddress": "http://localhost:4723/wd/hub",
+  "ExplicitWait_DefaultTimeoutMilliSec": 15000,
+  "ExplicitWait_DefaultPollingIntervalMilliSec": 500
+}
