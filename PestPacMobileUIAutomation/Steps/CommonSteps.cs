@@ -56,7 +56,7 @@ namespace RealGreen.MobileAutomation.Steps
         {
             RealGreenMobileSupport.SetFeature(FeatureContext.Current.FeatureInfo.Title);
 
-            LoginPageView loginPage = new LoginPageView();
+            LoginPageView loginPage = new LoginPageView(WebApplication.Instance.WebDriver);
             //TimeSheetsView timeSheetsView = new TimeSheetsView();
            // DailyView dailyView = new DailyView();
 

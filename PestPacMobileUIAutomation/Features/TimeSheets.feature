@@ -16,20 +16,17 @@ Scenario: 5Clock Out
 	Then User is Not Clocked In
 @2.0
 Scenario: 1Select Crew Members
-	Given User is logged in
-	When User is on timesheets screen
-	And User adds crew members
+	Given User is on timesheets screen
+	When User adds crew members
 	Then System displayed the crew members selected
 @2.0
 Scenario: 2Add Crew Members
-	Given User is logged in
-	When User is on timesheets screen
+	Given User is on timesheets screen
 	Then Crew members selected appears in the timesheets screen
 @2.0
 Scenario: 3Remove Crew Members
-	Given User is logged in
-	When User is on timesheets screen
-	And User removes the Crew Members
+	Given User is on timesheets screen
+	When User removes the Crew Members
 	Then Crew members were removed from timesheets screen
 
 
