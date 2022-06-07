@@ -136,7 +136,7 @@ namespace RealGreen.MobileAutomation.Steps
 
         private void Support_GivenIAmLoggedIn(Table table = null)
         {
-            LoginPageView loginPage = new LoginPageView();
+            LoginPageView loginPage = new LoginPageView(WebApplication.Instance.WebDriver);
             
             try
             {
