@@ -26,9 +26,13 @@ namespace RealGreen.MobileAutomation.Model
         private OpenQA.Selenium.IWebElement logoutContainer { get; set; }
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='button1']")]
         private OpenQA.Selenium.IWebElement logoutButton { get; set; }
-
-
-
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='quick_production_container']")]
+        private OpenQA.Selenium.IWebElement QuickProductionContainer { get; set; }
+        //******Quick Production Options Enabled/Disabled***********///
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@class='android.view.ViewGroup' and ./*[@text='Enabled'] and ./*[@class='android.view.View']]")]
+        private OpenQA.Selenium.IWebElement QuickProductionEnabled { get; set; }
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@class='android.view.ViewGroup' and ./*[@class='android.view.View'] and ./*[@text='Disabled']]")]
+        private OpenQA.Selenium.IWebElement QuickProductionDisabled { get; set; }
 
         //DEPOT ViewGroup Xpath
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@text='DEPOT'")]

@@ -63,6 +63,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Odometer.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\QuickProductionSetup.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuickProductionSetup.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\RefreshParametersAndImages.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -167,6 +172,10 @@
     <None Include="Features\Odometer.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Odometer.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\QuickProductionSetup.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>QuickProductionSetup.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\RefreshParametersAndImages.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
