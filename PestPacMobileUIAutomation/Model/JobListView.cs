@@ -53,7 +53,10 @@ namespace RealGreen.MobileAutomation.Model
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "")]
         private OpenQA.Selenium.IWebElement completeButtonInThePopup { get; set; }
 
-
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='bottom_navigation']")]
+        private OpenQA.Selenium.IWebElement acceptAndContinueButton{ get; set; }
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@text='Job Preview']")]
+        private OpenQA.Selenium.IWebElement jobPreview { get; set; }
 
 
 
@@ -64,6 +67,11 @@ namespace RealGreen.MobileAutomation.Model
         public void InitializePageFactoryElements() => PageFactory.InitElements(WebApplication.Instance.WebDriver, this);
         #endregion
         #region Behaivor
+        public void ClickOnAcceptAndContinue()
+        {
+            SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(jobPreview), TimeSpan.FromSeconds(25));
+            acceptAndContinueButton.Click();
+        }
         public void ClickOnJob()
         {
             SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(depotTextView), TimeSpan.FromSeconds(25));

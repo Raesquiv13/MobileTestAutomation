@@ -15,6 +15,7 @@ namespace RealGreen.MobileAutomation.Model
         #region PageFactory
 
         //New Code 2.0
+        
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='jobs_fragment']")]
         private OpenQA.Selenium.IWebElement jobsFrameLayout { get; set; }
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='timesheets_fragment']")]
@@ -28,11 +29,13 @@ namespace RealGreen.MobileAutomation.Model
         private OpenQA.Selenium.IWebElement logoutButton { get; set; }
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='quick_production_container']")]
         private OpenQA.Selenium.IWebElement QuickProductionContainer { get; set; }
-        //******Quick Production Options Enabled/Disabled***********///
+        //******Quick Production Options Enabled/Disabled/DoneButton***********///
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@class='android.view.ViewGroup' and ./*[@text='Enabled'] and ./*[@class='android.view.View']]")]
         private OpenQA.Selenium.IWebElement QuickProductionEnabled { get; set; }
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@class='android.view.ViewGroup' and ./*[@class='android.view.View'] and ./*[@text='Disabled']]")]
         private OpenQA.Selenium.IWebElement QuickProductionDisabled { get; set; }
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@class='android.view.ViewGroup' and ./*[@class='android.view.View'] and ./*[@text='Disabled']]")]
+        private OpenQA.Selenium.IWebElement QuickProductionDoneButton { get; set; }
 
         //DEPOT ViewGroup Xpath
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@text='DEPOT'")]
@@ -81,6 +84,20 @@ namespace RealGreen.MobileAutomation.Model
         public void ClickOnMore() => moreFrameLayout.Click();
         public void ClickOnLogout() => logoutContainer.Click();
         public void ClickOnConfirmLogout() => logoutButton.Click();
+        public void ClickOnQuickProduction() => QuickProductionContainer.Click();
+        public bool EnableQuickProductionVisible()
+        {
+            return SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(QuickProductionEnabled), TimeSpan.FromSeconds(5));
+        }
+        public bool DisableQuickProductionVisible()
+        {
+            return SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(QuickProductionDisabled), TimeSpan.FromSeconds(5));
+        }
+        public void DisableQuickProd()
+        {
+            QuickProductionDisabled.Click();
+            QuickProductionDoneButton.Click();
+        }
         public void ClickOnTimeSheets() {
             SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(timesheetsFrameLayout), TimeSpan.FromSeconds(30));
             timesheetsFrameLayout.Click();
