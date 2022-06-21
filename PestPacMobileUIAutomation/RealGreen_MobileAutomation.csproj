@@ -63,6 +63,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Odometer.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\ProductionEntry.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductionEntry.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Features\QuickProductionSetup.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuickProductionSetup.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\RefreshParametersAndImages.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +120,7 @@
     <Compile Include="Model\MapView.cs" />
     <Compile Include="Model\NotServiceableReasonsView.cs" />
     <Compile Include="Model\OdometerPageView.cs" />
+    <Compile Include="Model\ProductionEntryView.cs" />
     <Compile Include="Model\ProductionView.cs" />
     <Compile Include="Model\QuickProductionView.cs" />
     <Compile Include="Model\RGCallLogPage.cs" />
@@ -124,6 +135,11 @@
     <Compile Include="Model\PDFView.cs" />
     <Compile Include="Model\LoginPageView.cs" />
     <Compile Include="Model\TimeSheetsView.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="RealGreenMobileSupport.cs" />
     <Compile Include="SharedData\Job.cs" />
     <Compile Include="SharedData\RealGreenData.cs" />
@@ -133,6 +149,8 @@
     <Compile Include="Steps\JobListChangeDateSteps.cs" />
     <Compile Include="Steps\NotServiceableReasonsSteps.cs" />
     <Compile Include="Steps\OdometerSteps.cs" />
+    <Compile Include="Steps\ProductionEntrySteps.cs" />
+    <Compile Include="Steps\QuickProductionSetupSteps.cs" />
     <Compile Include="Steps\RealGrennLoginSteps.cs" />
     <Compile Include="Steps\RefreshParametersAndImagesSteps.cs" />
     <Compile Include="Steps\RefreshVehicleInventorySteps.cs" />
@@ -162,6 +180,14 @@
     <None Include="Features\Odometer.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Odometer.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\ProductionEntry.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ProductionEntry.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\QuickProductionSetup.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>QuickProductionSetup.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\RefreshParametersAndImages.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -194,6 +220,10 @@
     <None Include="Features\TimeSheets.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TimeSheets.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

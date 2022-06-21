@@ -38,7 +38,7 @@ namespace RealGreen.MobileAutomation.Model
             {
                 //String name = ExceptionManager.parseException(e);
                 //ExceptionManager.handleExeption(e, "[ERROR] There was a problem finding element " + name
-                // + ". It may not be available");
+                 //+ ". It may not be available");
                 return null;
             }
         }

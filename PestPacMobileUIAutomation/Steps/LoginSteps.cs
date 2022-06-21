@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using WorkWave.TA.TestEngine;
 //using WorkWave.PestPac.Mobile.Model;
 
 
@@ -20,7 +21,7 @@ namespace RealGreen.MobileAutomation.Steps
         
         private RouteListView routeList = new RouteListView();
        
-        LoginPageView loginPage = new LoginPageView();
+        LoginPageView loginPage = new LoginPageView(WebApplication.Instance.WebDriver);
         // New code 
 
         [Given(@"Home")]

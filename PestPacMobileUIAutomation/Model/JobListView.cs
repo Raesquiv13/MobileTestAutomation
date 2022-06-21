@@ -35,12 +35,43 @@ namespace RealGreen.MobileAutomation.Model
         [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='confirm_button']")]
         private OpenQA.Selenium.IWebElement confirmButton { get; set; }
 
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "")]
+        private OpenQA.Selenium.IWebElement notServiceableButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "")]
+        private OpenQA.Selenium.IWebElement startButton { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "")]
+        private OpenQA.Selenium.IWebElement doneButton { get; set; }
+
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "")]
+        private OpenQA.Selenium.IWebElement completeButton { get; set; }
+
+
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "")]
+        private OpenQA.Selenium.IWebElement completeButtonInThePopup { get; set; }
+
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@id='bottom_navigation']")]
+        private OpenQA.Selenium.IWebElement acceptAndContinueButton{ get; set; }
+        [OpenQA.Selenium.Support.PageObjects.FindsBy(How = How.XPath, Using = "//*[@text='Job Preview']")]
+        private OpenQA.Selenium.IWebElement jobPreview { get; set; }
+
+
+
+
         #endregion
         #region Page factory Setup
         public JobListView() => InitializePageFactoryElements();
         public void InitializePageFactoryElements() => PageFactory.InitElements(WebApplication.Instance.WebDriver, this);
         #endregion
         #region Behaivor
+        public void ClickOnAcceptAndContinue()
+        {
+            SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(jobPreview), TimeSpan.FromSeconds(25));
+            acceptAndContinueButton.Click();
+        }
         public void ClickOnJob()
         {
             SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(depotTextView), TimeSpan.FromSeconds(25));
@@ -57,6 +88,20 @@ namespace RealGreen.MobileAutomation.Model
             confirmButton.Click();
 
         }
+
+        public void changeDate(string date)
+        {
+            SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(dateTextView), TimeSpan.FromSeconds(10));
+            dateTextView.Click();
+            SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(editdateButton), TimeSpan.FromSeconds(10));
+            editdateButton.Click();
+            SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(newdateTextView), TimeSpan.FromSeconds(10));
+            newdateTextView.SendKeys(date);
+            confirmButton.Click();
+
+        }
+
+
         public Dictionary<int, Job> getJoblistData()
         {
             IWebDriver driver = WebApplication.Instance.WebDriver;
@@ -83,6 +128,70 @@ namespace RealGreen.MobileAutomation.Model
             return jobListData;
 
         }
+
+        public void setJobAsNotServiceable(string reason)
+        {
+            ClickOnJob();
+            notServiceableButton.Click();
+            setNotServiceableReason(reason);
+        }
+
+        public void setNotServiceableReason(string reason)
+        {
+            //click reason
+            IWebDriver driver = WebApplication.Instance.WebDriver;
+            IWebElement reasonElement = driver.FindElement(By.XPath(""));
+            reasonElement.Click();
+
+            //click done
+            doneButton.Click();
+        }
+
+
+        public void startJob()
+        {
+            // click start
+            SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(startButton), TimeSpan.FromSeconds(10));
+            startButton.Click();
+        }
+
+        public void completeJob()
+        {
+            startJob();
+            //click complete
+            completeButton.Click();
+            //click complete job in the popup
+            SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(completeButtonInThePopup), TimeSpan.FromSeconds(10));
+            completeButtonInThePopup.Click();
+
+        }
+
+        public bool verifyJobWasStarted()
+        {
+            //click done
+            SeleniumUtility.WaitFor(CustomExpectedConditions.ElementIsVisible(doneButton), TimeSpan.FromSeconds(10));
+            doneButton.Click();
+            // Verify times label was set
+
+
+            return true;
+        }
+
+        public bool verifyJobIsNotServiceable()
+        {
+            // Verify Not Serviceable label was set
+            return true;
+        }
+
+
+        public bool verifyJobWasCompleted()
+        {
+            // Verify job is under complete section
+            return true;
+        }
+
+
+
         #endregion
     }
 }

@@ -17,8 +17,37 @@ namespace RealGreen.MobileAutomation.Steps
         JobListView jobs = new JobListView();
         Dictionary<int, Job> firstJoblistData;
 
+        [When(@"Change Date ""(.*)""")]
+        public void WhenChangeDate(string date)
+        {
+            jobs.changeDate(date);
+            Thread.Sleep(10);
+        }
 
+        [When(@"Set job as not serviceable ""(.*)""")]
+        public void WhenSetJobAsNotServiceable(string reason)
+        {
+            jobs.setJobAsNotServiceable(reason);
+        }
 
+        [Then(@"Verify job was set as not not serviceable")]
+        public void ThenVerifyJobWasSetAsNotNotServiceable()
+        {
+            Assert.IsTrue(jobs.verifyJobIsNotServiceable());
+        }
+
+        [When(@"User starts the job")]
+        public void WhenUserStartsTheJob()
+        {
+            jobs.startJob();
+        }
+
+        [Then(@"job appears as started")]
+        public void ThenJonAppearsAsStarted()
+        {
+            Assert.IsTrue(jobs.verifyJobWasStarted());
+
+        }
 
         [Then(@"Job List are Updated")]
         public void ThenJobListAreUpdated()
